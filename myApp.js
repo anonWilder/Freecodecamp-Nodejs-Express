@@ -13,12 +13,13 @@ console.log(result)
      res.sendFile("index.html", {root: 'views'});
  }
 let JSONpath = function (req, res ){
-    let style = process.env.MESSAGE_STYLE;
+    let style = process.env.MESSAGE_STYLE || 'uppercase' ;
+    console.log("style:", style);
     let message = "Hello json";
 
     if( style === "uppercase" ){
         message = message.toUpperCase();
-        console.log(message)
+        console.log("message:", message);
     }
     res.json({"message": message})
 }
