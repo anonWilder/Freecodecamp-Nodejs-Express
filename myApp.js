@@ -7,11 +7,22 @@ console.log(result)
 // let HANDLER = function (req, res) {
 //     res.send('Hello Express')
 // }
+
+require('dotenv').config()
+
+
 let IndexView = function (req, res) {
     res.sendFile("index.html", {root: 'views'});
 }
 let JSONpath = function (req, res ){
-    res.json({"message": "Hello json"})
+    let style = process.env.MESSAGE_STYLE;
+    let message = "Hello json";
+
+    if( style = "uppercase" ){
+        message = message.toUpperCase();
+        console.log(message)
+    }
+    res.json({"message": message})
 }
 app.get("/", IndexView)
 app.get("/json", JSONpath )
