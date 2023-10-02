@@ -3,7 +3,7 @@ require('dotenv').config()
 let express = require('express');
 let app = express();
 let result = "Hello World"
-let port = 3000;
+let port = 3001;
 console.log(result)
 
 // let HANDLER = function (req, res) {
@@ -12,21 +12,31 @@ console.log(result)
  let IndexView = function (req, res) {
      res.sendFile("index.html", {root: 'views'});
  }
-let JSONpath = function (req, res ){
+// let JSONpath = function (req, res ){
+//     let style = process.env.MESSAGE_STYLE || 'uppercase' ;
+//     let message = "Hello json";
+
+//     if( style === "uppercase" ){
+//         message = message.toUpperCase();
+//         console.log(message);
+//     } else {
+//         message = message;
+//     }
+//     res.json({"message": message})
+// }
+app.get("/", IndexView)
+app.get("/json", function (req, res ){
     let style = process.env.MESSAGE_STYLE || 'uppercase' ;
-    console.log("style:", style);
     let message = "Hello json";
 
     if( style === "uppercase" ){
         message = message.toUpperCase();
-        console.log("message:", message);
+        console.log(message);
     } else {
         message = message;
     }
     res.json({"message": message})
-}
-app.get("/", IndexView)
-app.get("/json", JSONpath )
+} )
 
 app.use("/public", express.static(__dirname + '/public'))
 
