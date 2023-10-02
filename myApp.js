@@ -6,7 +6,7 @@ console.log(result)
 let HANDLER = function (req, res) {
     res.send('Hello Express')
 }
-app.get("/ben", HANDLER)
+app.get("/", HANDLER)
 
 
 
