@@ -7,7 +7,7 @@ console.log(result)
 //     res.send('Hello Express')
 // }
 let IndexView = function (req, res) {
-    res.sendFile("views\index.html")
+    res.sendFile("index.html", {root: 'views'});
 }
 app.get("/", IndexView)
 console.log(IndexView)
