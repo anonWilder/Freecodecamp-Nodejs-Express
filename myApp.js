@@ -16,7 +16,7 @@ let JSONpath = function (req, res ){
     let style = process.env.MESSAGE_STYLE;
     let message = "Hello json";
 
-    if( style = "uppercase" ){
+    if( style === "uppercase" ){
         message = message.toUpperCase();
         console.log(message)
     }
