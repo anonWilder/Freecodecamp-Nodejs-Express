@@ -20,6 +20,8 @@ let JSONpath = function (req, res ){
     if( style === "uppercase" ){
         message = message.toUpperCase();
         console.log("message:", message);
+    } else {
+        message = message;
     }
     res.json({"message": message})
 }
