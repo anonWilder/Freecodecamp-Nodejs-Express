@@ -10,8 +10,11 @@ console.log(result)
 let IndexView = function (req, res) {
     res.sendFile("index.html", {root: 'views'});
 }
+let JSONpath = function (req, res ){
+    res.json({"message": "Hello json"})
+}
 app.get("/", IndexView)
-console.log(IndexView)
+app.get("/json", JSONpath )
 
 app.use("/public", express.static(__dirname + '/public'))
 
