@@ -27,7 +27,7 @@ console.log(result)
 app.get("/", IndexView)
 var message= 'Hello json';
 app.get("/json", (req, res) => {
-  if ( process.env['MESSAGE_STYLE'] === "uppercase") {
+  if ( process.env.MESSAGE_STYLE === "uppercase") {
       res.json({ "message": message.toUpperCase() });
   }
   else {
