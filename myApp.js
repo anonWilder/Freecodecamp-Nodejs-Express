@@ -31,7 +31,7 @@ app.get("/json", (req, res) => {
       res.json({ "message": message.toUpperCase() });
   }
   else {
-    res.json({ "message": messange });
+    res.json({ "message": message });
   }
 });
 
